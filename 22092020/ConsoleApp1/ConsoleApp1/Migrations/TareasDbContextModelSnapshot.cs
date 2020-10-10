@@ -23,6 +23,7 @@ namespace ConsoleApp1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("fecha")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("recursoId")
@@ -50,7 +51,8 @@ namespace ConsoleApp1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("nombre")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(45);
 
                     b.Property<int?>("usuarioId")
                         .HasColumnType("INTEGER");
@@ -81,6 +83,7 @@ namespace ConsoleApp1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("titulo")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("vencimiento")

@@ -38,7 +38,7 @@ namespace ConsoleApp1.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    nombre = table.Column<string>(nullable: true),
+                    nombre = table.Column<string>(maxLength: 45, nullable: true),
                     usuarioId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -58,7 +58,7 @@ namespace ConsoleApp1.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    titulo = table.Column<string>(nullable: true),
+                    titulo = table.Column<string>(nullable: false),
                     vencimiento = table.Column<string>(nullable: true),
                     estimacion = table.Column<int>(nullable: false),
                     responsableId = table.Column<int>(nullable: true),
@@ -88,7 +88,7 @@ namespace ConsoleApp1.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    fecha = table.Column<string>(nullable: true),
+                    fecha = table.Column<string>(nullable: false),
                     tiempo = table.Column<string>(nullable: true),
                     tareasId = table.Column<int>(nullable: true),
                     recursoId = table.Column<int>(nullable: true)

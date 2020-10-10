@@ -57,6 +57,8 @@ namespace ConsoleApp1
 
         static void Listar()
         {
+
+            Console.WriteLine("Listado de Usuarios: \n");
             var ctx = new TareasDbContext();
 
             var lista = ctx.Usuario.ToList();

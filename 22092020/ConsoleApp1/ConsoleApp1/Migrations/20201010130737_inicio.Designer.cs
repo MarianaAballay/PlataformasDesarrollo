@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConsoleApp1.Migrations
 {
     [DbContext(typeof(TareasDbContext))]
-    [Migration("20201010010144_inicio")]
+    [Migration("20201010130737_inicio")]
     partial class inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,7 @@ namespace ConsoleApp1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("fecha")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("recursoId")
@@ -52,7 +53,8 @@ namespace ConsoleApp1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("nombre")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(45);
 
                     b.Property<int?>("usuarioId")
                         .HasColumnType("INTEGER");
@@ -83,6 +85,7 @@ namespace ConsoleApp1.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("titulo")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("vencimiento")
