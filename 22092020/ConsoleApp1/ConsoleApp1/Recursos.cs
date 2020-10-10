@@ -6,6 +6,7 @@ namespace ConsoleApp1
 {
     class Recursos
     {
+        public int Id { get; set; }
         public String nombre { get; set; }
         public Usuarios usuario { get; set; }
 
