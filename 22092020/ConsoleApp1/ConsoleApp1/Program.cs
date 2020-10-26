@@ -23,8 +23,8 @@ namespace ConsoleApp1
         static void Insertar()
         {
             var ctx = new TareasDbContext();
-            ctx.Usuario.Add(new Usuarios { Id = 1, nombre = "Mariana", clave = "1234" });
 
+            ctx.Usuario.Add(new Usuarios { Id = 1, nombre = "Mariana", clave = "1234" });
             ctx.Add(new Usuarios() { Id = 2, nombre = "Leonardo", clave = "5656" });
             ctx.Add(new Usuarios() { Id = 3, nombre = "Gervasio", clave = "2323" });
             ctx.Add(new Usuarios() { Id = 4, nombre = "Obdulio", clave = "9865" });
