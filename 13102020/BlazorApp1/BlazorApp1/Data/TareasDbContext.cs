@@ -22,15 +22,13 @@ namespace BlazorApp1.Data
                 modelBuilder.Entity<Detalle>().Property(p => p.Id).ValueGeneratedOnAdd();
                 modelBuilder.Entity<Recurso>().ToTable("Recurso");
                 modelBuilder.Entity<Recurso>().Property(p => p.Id).ValueGeneratedOnAdd();
-                modelBuilder.Entity<TipoTarea>().ToTable("TipoTarea");
-                modelBuilder.Entity<TipoTarea>().Property(p => p.Id).ValueGeneratedOnAdd();
+
         }
 
         public DbSet<Detalle> Detalle { get; set; }
         public DbSet<Tarea> Tarea { get; set; }
         public DbSet<Recurso> Recurso { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<TipoTarea> TipoTarea { get; set; }
 
     }
 }

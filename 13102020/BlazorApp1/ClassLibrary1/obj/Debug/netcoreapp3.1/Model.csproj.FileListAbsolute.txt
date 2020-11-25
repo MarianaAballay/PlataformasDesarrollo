@@ -1,0 +1,8 @@
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\bin\Debug\netcoreapp3.1\Model.deps.json
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\obj\Debug\netcoreapp3.1\Model.AssemblyInfoInputs.cache
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\obj\Debug\netcoreapp3.1\Model.csproj.CoreCompileInputs.cache
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\obj\Debug\netcoreapp3.1\Model.dll
+C:\Users\aball\source\repos\PlataformasDesarrollo\13102020\BlazorApp1\ClassLibrary1\obj\Debug\netcoreapp3.1\Model.pdb

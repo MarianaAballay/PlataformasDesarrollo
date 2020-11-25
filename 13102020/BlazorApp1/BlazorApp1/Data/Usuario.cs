@@ -10,6 +10,15 @@ namespace BlazorApp1.Data
     public class Usuario
     {
 
+        public Usuario() { }
+
+        public Usuario(int Id, String nombre, String clave) {
+            this.Id = Id;
+            this.nombre = nombre;
+            this.clave = clave;
+        
+        }
+
         public int Id { get; set; }
         [MaxLength(50)]
         [MinLength(5)]

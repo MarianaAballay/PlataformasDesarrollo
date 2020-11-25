@@ -4,6 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{38EDFB66-4D63-42D4-A8AD-F35356C6C3D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D765DBC-6E88-4FE4-AEDC-43008CD19F65} = {8D765DBC-6E88-4FE4-AEDC-43008CD19F65}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{B24DF3E3-ABF2-4F64-96CC-5997A3AC70B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{8D765DBC-6E88-4FE4-AEDC-43008CD19F65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,14 @@ Global
 		{38EDFB66-4D63-42D4-A8AD-F35356C6C3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38EDFB66-4D63-42D4-A8AD-F35356C6C3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38EDFB66-4D63-42D4-A8AD-F35356C6C3D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24DF3E3-ABF2-4F64-96CC-5997A3AC70B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24DF3E3-ABF2-4F64-96CC-5997A3AC70B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24DF3E3-ABF2-4F64-96CC-5997A3AC70B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24DF3E3-ABF2-4F64-96CC-5997A3AC70B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D765DBC-6E88-4FE4-AEDC-43008CD19F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D765DBC-6E88-4FE4-AEDC-43008CD19F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D765DBC-6E88-4FE4-AEDC-43008CD19F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D765DBC-6E88-4FE4-AEDC-43008CD19F65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
