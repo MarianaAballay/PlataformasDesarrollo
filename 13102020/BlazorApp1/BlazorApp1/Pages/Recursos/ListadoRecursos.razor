@@ -9,7 +9,7 @@
 
 <h1>Listado de Recursos</h1>
 
-<button class="btn btn-primary" @onclick="()=>Editar(0)">Nuevo</button>
+<button class="btn btn-info" @onclick="()=>Editar(0)">Nuevo</button>
 
 @if (recurso == null)
 {
@@ -17,8 +17,8 @@
 }
 else
 {
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>

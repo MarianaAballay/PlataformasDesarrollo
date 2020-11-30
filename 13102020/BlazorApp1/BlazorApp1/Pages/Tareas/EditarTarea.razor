@@ -9,8 +9,11 @@
 <EditForm Model="@Tarea" OnValidSubmit="@Guardar">
     <DataAnnotationsValidator />
     <ValidationSummary />
+    <label class="text-center">Ingrese el título: </label>
     <InputText @bind-Value="Tarea.Titulo" />
+    <label class="text-center">Ingrese el vencimiento: </label>
     <InputText @bind-Value="Tarea.Vencimiento" />
+    <label class="text-center">Ingrese la estimación: </label>
     <InputText @bind-Value="Tarea.Estimacion" />
     <InputSelect @bind-Value="RecursoID">
         <option value="0">Elegir un Recurso</option>
@@ -20,7 +23,7 @@
         }
     </InputSelect>
 
-    <button type="submit">Guardar</button>
+    <button class="btn-outline-primary" type="submit">Guardar</button>
 </EditForm>
 
 

@@ -8,19 +8,16 @@
 
 <h3>Listado De Tareas</h3>
 
-<button class="btn btn-primary" @onclick="()=>Editar(0)">Nuevo</button>
-
-
-<p>A continuación, el listado de tareas</p>
+<button class="btn btn-info" @onclick="()=>Editar(0)">Nuevo</button>
 
 @if (tareas == null)
 {
-    <p><em>Cargando...</em></p>
+    <p>Cargando...</p>
 }
 else
 {
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
                 <th>Titulo</th>

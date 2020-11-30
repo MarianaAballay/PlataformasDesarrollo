@@ -8,6 +8,7 @@
 <EditForm Model="@Recurso" OnValidSubmit="@Guardar">
     <DataAnnotationsValidator />
     <ValidationSummary />
+    <label class="text-center">Ingrese el nombre del recurso: </label>
     <InputText @bind-Value="Recurso.Nombre" />
     <InputSelect @bind-Value="UsuarioID">
         <option value="0">Elegir un Usuario</option>
@@ -17,7 +18,7 @@
         }
     </InputSelect>
 
-    <button type="submit">Guardar</button>
+    <button class="btn-outline-primary" type="submit">Guardar</button>
 </EditForm>
 
 

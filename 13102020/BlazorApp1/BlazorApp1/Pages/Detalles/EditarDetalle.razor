@@ -9,8 +9,11 @@
 <EditForm Model="@Detalle" OnValidSubmit="@Guardar">
     <DataAnnotationsValidator />
     <ValidationSummary />
+    <label class="text-center">Ingrese la fecha: </label>
     <InputText @bind-Value="Detalle.fecha" />
+    <label class="text-center">Ingrese el tiempo en días: </label>
     <InputText @bind-Value="Detalle.tiempo" />
+    Recurso:
     <InputSelect @bind-Value="RecursoID">
         <option value="0">Elegir un Recurso</option>
         @foreach (var R in Recursos)
@@ -27,7 +30,7 @@
         }
     </InputSelect>
 
-    <button type="submit">Guardar</button>
+    <button class="btn-outline-primary" type="submit">Guardar</button>
 </EditForm>
 
 
