@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassLibrary1.Data;
 
 namespace BlazorApp1.Data
 {
     public class DetalleServicio
     {
-            public List<Detalle> GetDetalles()
+            /*public List<Detalle> GetDetalles()
             {
                 var bd = new TareasDbContext();
 
@@ -25,7 +26,7 @@ namespace BlazorApp1.Data
             public DetalleServicio(TareasDbContext _context)
             {
                 context = _context;
-            }
+            }*/
 
             public async Task<Detalle> Get(int id)
             {
@@ -78,13 +79,13 @@ namespace BlazorApp1.Data
         }
 
 
-        public async Task<bool> Remove(int id)
+        /*public async Task<bool> Remove(int id)
             {
                 var entidad = await context.Detalle.Where(i => i.Id == id).SingleAsync();
                 context.Detalle.Remove(entidad);
                 await context.SaveChangesAsync();
                 return true;
-            }
+            }*/
 
 
         }

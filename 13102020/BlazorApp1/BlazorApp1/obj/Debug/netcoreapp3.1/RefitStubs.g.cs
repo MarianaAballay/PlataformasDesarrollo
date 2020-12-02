@@ -37,6 +37,7 @@ namespace BlazorApp1.Data
     using global::System.Collections.Generic;
     using global::System.Linq;
     using global::System.Threading.Tasks;
+    using global::ClassLibrary1.Data;
 
     /// <inheritdoc />
     [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]

@@ -35,20 +35,24 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public Recurso Post(Recurso valor)
+        public IActionResult Post(Recurso valor)
         {
+            var local = _context.Recurso.Local.FirstOrDefault(e => e.Id.Equals(valor.Id));
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
             if (valor.Id == 0)
             {
-                _context.Recurso.Add(valor);
+                _context.Entry(valor).State = EntityState.Added;
             }
             else
             {
-                _context.Recurso.Attach(valor);
-                _context.Recurso.Update(valor);
+                _context.Entry(valor).State = EntityState.Modified;
 
             }
             _context.SaveChanges();
-            return valor;
+            return Ok(valor);
         }
     }
 }

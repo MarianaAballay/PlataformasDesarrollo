@@ -36,20 +36,24 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost]
-        public Tarea Post(Tarea valor)
+        public IActionResult Post(Tarea valor)
         {
+            var local = _context.Tarea.Local.FirstOrDefault(e => e.Id.Equals(valor.Id));
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
             if (valor.Id == 0)
             {
-                _context.Tarea.Add(valor);
+                _context.Entry(valor).State = EntityState.Added;
             }
             else
             {
-                _context.Tarea.Attach(valor);
-                _context.Tarea.Update(valor);
+                _context.Entry(valor).State = EntityState.Modified;
 
             }
             _context.SaveChanges();
-            return valor;
+            return Ok(valor);
         }
     }
 }

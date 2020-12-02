@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassLibrary1.Data;
 
 namespace BlazorApp1.Data
 {
     public class UsuarioServicio
     {
-        public List<Usuario> getUsuarios()
+        /*public List<Usuario> getUsuarios()
         {
             var ctx = new TareasDbContext();
             var lista = ctx.Usuario.ToList();
@@ -22,7 +23,7 @@ namespace BlazorApp1.Data
         public UsuarioServicio(TareasDbContext _context)
         {
             context = _context;
-        }
+        }*/
 
         public async Task<Usuario> Get(int id)
         {
@@ -63,13 +64,13 @@ namespace BlazorApp1.Data
             return value;
         }*/
 
-        public async Task<bool> Remove(int id)
+        /*public async Task<bool> Remove(int id)
         {
             var entidad = await context.Usuario.Where(i => i.Id == id).SingleAsync();
             context.Usuario.Remove(entidad);
             await context.SaveChangesAsync();
             return true;
-        }
+        }*/
 
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ClassLibrary1.Data;
 using WebApplication1.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Controllers
 {
@@ -32,18 +33,21 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public Detalle Post(Detalle valor) {
-            if (valor.Id == 0)
+        public IActionResult Post(Detalle valor) {
+            var local = _context.Detalle.Local.FirstOrDefault(e => e.Id.Equals(valor.Id));
+            if (local != null)
             {
-                _context.Detalle.Add(valor);
+                _context.Entry(local).State = EntityState.Detached;
+            }
+            if(valor.Id ==0){
+                _context.Entry(valor).State = EntityState.Added;
             }
             else {
-                _context.Detalle.Attach(valor);
-                _context.Detalle.Update(valor);
+                _context.Entry(valor).State = EntityState.Modified;
 
             }
             _context.SaveChanges();
-            return valor;
+            return Ok(valor);
         }
 
 

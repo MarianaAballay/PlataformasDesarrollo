@@ -1,5 +1,6 @@
 ﻿@page "/Detalles/Detalles"
 @using BlazorApp1.Data
+@using ClassLibrary1.Data
 @inject DetalleServicio DetalleServicio
 @inject NavigationManager navigation
 @inject IJSRuntime JsRuntime
@@ -28,14 +29,14 @@ else
         <tbody>
             @foreach (var D in Detalle)
             {
-            <tr>
-                <td>@D.Id</td>
-                <td>@D.fecha</td>
-                <td>@D.tiempo</td>
-                <td>@D.recurso.Nombre</td>
-                <td>@D.tarea.Titulo</td>
-                <td><button class="btn btn-success" @onclick="()=>Editar(D.Id)">Editar</button> <button class="btn btn-danger" @onclick="()=>Borrar(D.Id)">Borrar</button></td>
-            </tr>
+                <tr>
+                    <td>@D.Id</td>
+                    <td>@D.fecha</td>
+                    <td>@D.tiempo</td>
+                    <td>@D.recurso.Nombre</td>
+                    <td>@D.tarea.Titulo</td>
+                    <td><button class="btn btn-success" @onclick="()=>Editar(D.Id)">Editar</button> <button class="btn btn-danger" @onclick="()=>Borrar(D.Id)">Borrar</button></td>
+                </tr>
             }
         </tbody>
     </table>
@@ -44,7 +45,7 @@ else
 @code {
 
 
-    private List<Detalle> Detalle;
+    private List<Detalle> Detalle = new List<Detalle>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,7 +63,7 @@ else
         bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Seguro de eliminar detalle?");
         if (confirmed)
         {
-            await DetalleServicio.Remove(id);
+            //await DetalleServicio.Remove(id);
             Detalle = await DetalleServicio.GetAllDetalle();
         }
     }

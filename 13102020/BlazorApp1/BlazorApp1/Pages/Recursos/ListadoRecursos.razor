@@ -1,6 +1,7 @@
 ﻿@page "/Recursos/ListadoRecursos"
 
 @using BlazorApp1.Data
+@using ClassLibrary1.Data
 @inject RecursoServicio RecursoServicio
 @inject UsuarioServicio UsuarioServicio
 @inject NavigationManager navigation
@@ -29,12 +30,12 @@ else
         <tbody>
             @foreach (var R in recurso)
             {
-            <tr>
-                <td>@R.Id</td>
-                <td>@R.Nombre</td>
-                <td>@R.Usuario.nombre</td>
-                <td><button class="btn btn-success" @onclick="()=>Editar(R.Id)">Editar</button> <button class="btn btn-danger" @onclick="()=>Borrar(R.Id)">Borrar</button></td>
-            </tr>
+                <tr>
+                    <td>@R.Id</td>
+                    <td>@R.Nombre</td>
+                    <td>@R.Usuario.nombre</td>
+                    <td><button class="btn btn-success" @onclick="()=>Editar(R.Id)">Editar</button> <button class="btn btn-danger" @onclick="()=>Borrar(R.Id)">Borrar</button></td>
+                </tr>
             }
         </tbody>
     </table>
@@ -62,7 +63,7 @@ else
         bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Desea eliminar recurso?");
         if (confirmed)
         {
-            await RecursoServicio.Remove(id);
+           // await RecursoServicio.Remove(id);
             recurso = await RecursoServicio.GetAllRecurso();
         }
     }

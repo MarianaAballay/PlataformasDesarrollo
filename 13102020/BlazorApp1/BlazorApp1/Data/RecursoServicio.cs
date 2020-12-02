@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClassLibrary1.Data;
 
 namespace BlazorApp1.Data
 {
     public class RecursoServicio
     {
-        public List<Recurso> GetRecursos()
+        /*public List<Recurso> GetRecursos()
         {
             var bd = new TareasDbContext();
 
@@ -26,7 +27,7 @@ namespace BlazorApp1.Data
         public RecursoServicio(TareasDbContext _context)
         {
             context = _context;
-        }
+        }*/
 
         public async Task<Recurso> Get(int id)
         {
@@ -64,17 +65,18 @@ namespace BlazorApp1.Data
             return value;
         }*/
 
-        public async Task<bool> Remove(int id)
+        /*public async Task<bool> Remove(int id)
         {
             var entidad = await context.Recurso.Where(i => i.Id == id).SingleAsync();
             context.Recurso.Remove(entidad);
             await context.SaveChangesAsync();
             return true;
-        }
+        }*/
 
-        public async Task<List<Usuario>> GetUsuarios()
+        public async Task<List<Usuario>> GetAllUsuario()
         {
-            return await context.Usuario.ToListAsync();
+            var remoteService = RestService.For<IRemoteService>("http://localhost:64280/api/");
+            return await remoteService.GetAllUsuario();
         }
 
     }
