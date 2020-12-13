@@ -10,20 +10,7 @@ namespace BlazorApp1.Data
 {
     public class UsuarioServicio
     {
-        /*public List<Usuario> getUsuarios()
-        {
-            var ctx = new TareasDbContext();
-            var lista = ctx.Usuario.ToList();
-
-            return lista;
-
-        }
-        private TareasDbContext context;
-
-        public UsuarioServicio(TareasDbContext _context)
-        {
-            context = _context;
-        }*/
+        
 
         public async Task<Usuario> Get(int id)
         {
@@ -64,13 +51,12 @@ namespace BlazorApp1.Data
             return value;
         }*/
 
-        /*public async Task<bool> Remove(int id)
+        public async Task<Usuario> Remove(int id)
         {
-            var entidad = await context.Usuario.Where(i => i.Id == id).SingleAsync();
-            context.Usuario.Remove(entidad);
-            await context.SaveChangesAsync();
-            return true;
-        }*/
+            var remoteService = RestService.For<IRemoteService>("http://localhost:64280/api");
+
+            return await remoteService.DeleteUsuario(id);
+        }
 
     }
 }

@@ -10,25 +10,7 @@ namespace BlazorApp1.Data
 {
     public class RecursoServicio
     {
-        /*public List<Recurso> GetRecursos()
-        {
-            var bd = new TareasDbContext();
-
-            var list = bd.Recurso.ToList();
-
-            return list;
-
-        }
-
-
-
-        private TareasDbContext context;
-
-        public RecursoServicio(TareasDbContext _context)
-        {
-            context = _context;
-        }*/
-
+      
         public async Task<Recurso> Get(int id)
         {
             var remoteService = RestService.For<IRemoteService>("http://localhost:64280/api/");
@@ -40,10 +22,7 @@ namespace BlazorApp1.Data
             var remoteService = RestService.For<IRemoteService>("http://localhost:64280/api/");
             return await remoteService.GetAllRecurso();
         }
-        /*public async Task<List<Recurso>> GetAll()
-        {
-            return await context.Recurso.ToListAsync();
-        }*/
+        
 
         public async Task<Recurso> SaveRecurso(Recurso valor)
         {
@@ -65,13 +44,12 @@ namespace BlazorApp1.Data
             return value;
         }*/
 
-        /*public async Task<bool> Remove(int id)
+        public async Task<Recurso> Remove(int id)
         {
-            var entidad = await context.Recurso.Where(i => i.Id == id).SingleAsync();
-            context.Recurso.Remove(entidad);
-            await context.SaveChangesAsync();
-            return true;
-        }*/
+            var remoteService = RestService.For<IRemoteService>("http://localhost:64280/api");
+
+            return await remoteService.DeleteRecurso(id);
+        }
 
         public async Task<List<Usuario>> GetAllUsuario()
         {

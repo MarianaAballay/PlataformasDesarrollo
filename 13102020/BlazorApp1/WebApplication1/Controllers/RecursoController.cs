@@ -54,5 +54,15 @@ namespace WebApplication1.Controllers
             _context.SaveChanges();
             return Ok(valor);
         }
+
+
+        [HttpDelete("{id}")]
+        public Recurso DeleteRecurso(int id)
+        {
+            Recurso borrarrecurso = _context.Recurso.Find(id);
+            _context.Recurso.Remove(borrarrecurso);
+            _context.SaveChanges();
+            return borrarrecurso;
+        }
     }
 }

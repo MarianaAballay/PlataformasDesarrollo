@@ -82,6 +82,14 @@ namespace BlazorApp1.Data
         }
 
         /// <inheritdoc />
+        Task<Usuario> IRemoteService.DeleteUsuario(int id)
+        {
+            var arguments = new object[] { id };
+            var func = requestBuilder.BuildRestResultFuncForMethod("DeleteUsuario", new Type[] { typeof(int) });
+            return (Task<Usuario>)func(Client, arguments);
+        }
+
+        /// <inheritdoc />
         Task<List<Recurso>> IRemoteService.GetAllRecurso()
         {
             var arguments = new object[] {  };
@@ -102,6 +110,14 @@ namespace BlazorApp1.Data
         {
             var arguments = new object[] { valor };
             var func = requestBuilder.BuildRestResultFuncForMethod("GuardarRecurso", new Type[] { typeof(Recurso) });
+            return (Task<Recurso>)func(Client, arguments);
+        }
+
+        /// <inheritdoc />
+        Task<Recurso> IRemoteService.DeleteRecurso(int id)
+        {
+            var arguments = new object[] { id };
+            var func = requestBuilder.BuildRestResultFuncForMethod("DeleteRecurso", new Type[] { typeof(int) });
             return (Task<Recurso>)func(Client, arguments);
         }
 
@@ -130,6 +146,14 @@ namespace BlazorApp1.Data
         }
 
         /// <inheritdoc />
+        Task<Detalle> IRemoteService.DeleteDetalle(int id)
+        {
+            var arguments = new object[] { id };
+            var func = requestBuilder.BuildRestResultFuncForMethod("DeleteDetalle", new Type[] { typeof(int) });
+            return (Task<Detalle>)func(Client, arguments);
+        }
+
+        /// <inheritdoc />
         Task<List<Tarea>> IRemoteService.GetAllTarea()
         {
             var arguments = new object[] {  };
@@ -150,6 +174,14 @@ namespace BlazorApp1.Data
         {
             var arguments = new object[] { valor };
             var func = requestBuilder.BuildRestResultFuncForMethod("GuardarTarea", new Type[] { typeof(Tarea) });
+            return (Task<Tarea>)func(Client, arguments);
+        }
+
+        /// <inheritdoc />
+        Task<Tarea> IRemoteService.DeleteTarea(int id)
+        {
+            var arguments = new object[] { id };
+            var func = requestBuilder.BuildRestResultFuncForMethod("DeleteTarea", new Type[] { typeof(int) });
             return (Task<Tarea>)func(Client, arguments);
         }
     }

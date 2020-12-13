@@ -31,14 +31,15 @@ else
         <tbody>
             @foreach (var T in tareas)
             {
-                <tr>
-                    <td>@T.Id</td>
-                    <td>@T.Titulo</td>
-                    <td>@T.Vencimiento</td>
-                    <td>@T.Estimacion</td>
-                    <td>@T.Responsable.Nombre</td>
-                    <td><button class="btn btn-success" @onclick="()=>Editar(T.Id)">Editar</button> <button class="btn btn-danger" @onclick="()=>Borrar(T.Id)">Borrar</button></td>
-                </tr>
+            <tr>
+                <td>@T.Id</td>
+                <td>@T.Titulo</td>
+                <td>@T.Vencimiento</td>
+                <td>@T.Estimacion</td>
+                <td>@T.Responsable.Nombre</td>
+                <td><button class="btn btn-success" @onclick="()=>Editar(T.Id)">Editar</button> <button class="btn btn-danger" @onclick="()=>Borrar(T.Id)">Borrar</button><button type="button" class="btn btn-primary" @onclick="()=>VerDetalle(T.Id)">Detalle Tarea</button></td>
+                
+            </tr>
             }
         </tbody>
     </table>
@@ -61,11 +62,18 @@ else
 
     async Task Borrar(int id)
     {
-        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Desea eliminar tarea?");
+
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Seguro que desea eliminar la tarea?");
         if (confirmed)
         {
-           // await TareaServicio.Remove(id);
+            await TareaServicio.Remove(id);
             tareas = await TareaServicio.GetAllTarea();
         }
+    }
+
+
+    protected void VerDetalle(int id)
+    {
+        navigation.NavigateTo("../Detalles/Detalles/" + id);
     }
 }

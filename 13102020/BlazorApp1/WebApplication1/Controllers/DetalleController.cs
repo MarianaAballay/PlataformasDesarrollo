@@ -50,6 +50,15 @@ namespace WebApplication1.Controllers
             return Ok(valor);
         }
 
+        [HttpDelete("{id}")]
+        public Detalle DeleteDetalle(int id)
+        {
+            Detalle borrardetalle = _context.Detalle.Find(id);
+            _context.Detalle.Remove(borrardetalle);
+            _context.SaveChanges();
+            return borrardetalle;
+        }
+
 
     }
 }

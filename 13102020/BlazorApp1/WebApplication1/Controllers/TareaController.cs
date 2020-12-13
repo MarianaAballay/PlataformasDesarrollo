@@ -29,8 +29,9 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet("{id}")]
-        public Tarea Get(int id)
+        public Tarea GetTarea(int id)
         {
+
             return _context.Tarea.Where(i => i.Id == id).Single();
         }
 
@@ -54,6 +55,16 @@ namespace WebApplication1.Controllers
             }
             _context.SaveChanges();
             return Ok(valor);
+        }
+
+
+        [HttpDelete("{id}")]
+        public Tarea DeleteTarea(int id)
+        {
+            Tarea borrartarea = _context.Tarea.Find(id);
+            _context.Tarea.Remove(borrartarea);
+            _context.SaveChanges();
+            return borrartarea;
         }
     }
 }

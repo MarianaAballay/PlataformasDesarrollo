@@ -60,10 +60,10 @@ else
 
     async Task Borrar(int id)
     {
-        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Desea eliminar recurso?");
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Seguro que desea eliminar el recurso?");
         if (confirmed)
         {
-           // await RecursoServicio.Remove(id);
+            await RecursoServicio.Remove(id);
             recurso = await RecursoServicio.GetAllRecurso();
         }
     }

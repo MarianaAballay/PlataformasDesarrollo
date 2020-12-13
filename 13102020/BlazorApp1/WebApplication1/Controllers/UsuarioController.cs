@@ -54,5 +54,15 @@ namespace WebApplication1.Controllers
             _context.SaveChanges();
             return Ok(valor);
         }
+
+
+        [HttpDelete("{id}")]
+        public Usuario DeleteUsuario(int id)
+        {
+            Usuario borrarusuario = _context.Usuario.Find(id);
+            _context.Usuario.Remove(borrarusuario);
+            _context.SaveChanges();
+            return borrarusuario;
+        }
     }
 }

@@ -2,6 +2,7 @@
 @using BlazorApp1.Data
 @using ClassLibrary1.Data
 @inject DetalleServicio DetalleServicio
+@inject TareaServicio TareaServicio
 @inject NavigationManager navigation
 @inject IJSRuntime JsRuntime
 
@@ -45,7 +46,11 @@ else
 @code {
 
 
-    private List<Detalle> Detalle = new List<Detalle>();
+    //private List<Detalle> Detalle = new List<Detalle>();
+    private List<Detalle> Detalle;
+    
+
+   
 
     protected override async Task OnInitializedAsync()
     {
@@ -60,10 +65,11 @@ else
 
     async Task Borrar(int id)
     {
-        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Seguro de eliminar detalle?");
+
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "¿Seguro que desea eliminar el detalle?");
         if (confirmed)
         {
-            //await DetalleServicio.Remove(id);
+            await DetalleServicio.Remove(id);
             Detalle = await DetalleServicio.GetAllDetalle();
         }
     }

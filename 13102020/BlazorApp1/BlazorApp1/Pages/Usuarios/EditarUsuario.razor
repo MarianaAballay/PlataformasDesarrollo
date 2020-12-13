@@ -5,43 +5,44 @@
 @inject UsuarioServicio UsuarioServicio
 @inject NavigationManager navigation
 
+    <h1>Editar Usuario</h1>
 
-<EditForm Model="@Usuario" OnValidSubmit="@Guardar">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <label class="text-center">Ingrese el nombre: </label>
-    <InputText @bind-Value="Usuario.nombre" />
-    <label class="text-center">Ingrese la clave: </label>
-    <InputText @bind-Value="Usuario.clave" />
+    <EditForm Model="@Usuario" OnValidSubmit="@Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <label class="text-center">Ingrese el nombre: </label>
+        <InputText @bind-Value="Usuario.nombre" />
+        <label class="text-center">Ingrese la clave: </label>
+        <InputText @bind-Value="Usuario.clave" />
 
-    <button class="btn-outline-primary" type="submit">Guardar</button>
-</EditForm>
+        <button class="btn-outline-primary" type="submit">Guardar</button>
+    </EditForm>
 
 
-@code {
-    [Parameter]
-    public int id { get; set; }
+    @code {
+        [Parameter]
+        public int id { get; set; }
 
-    public Usuario Usuario { get; set; } = new Usuario();
+        public Usuario Usuario { get; set; } = new Usuario();
 
-    protected override async Task OnInitializedAsync()
-    {
-        if (id > 0)
+        protected override async Task OnInitializedAsync()
         {
-            Usuario = await UsuarioServicio.Get(id);
+            if (id > 0)
+            {
+                Usuario = await UsuarioServicio.Get(id);
+            }
+            else
+            {
+                Usuario = new Usuario();
+            }
         }
-        else
+
+
+        private async void Guardar()
         {
-            Usuario = new Usuario();
+            await UsuarioServicio.SaveUsuario(Usuario);
+            navigation.NavigateTo("Usuarios/ListadoUsuarios");
         }
+
+
     }
-
-
-    private async void Guardar()
-    {
-        await UsuarioServicio.SaveUsuario(Usuario);
-        navigation.NavigateTo("Usuarios/ListadoUsuarios");
-    }
-
-
-}

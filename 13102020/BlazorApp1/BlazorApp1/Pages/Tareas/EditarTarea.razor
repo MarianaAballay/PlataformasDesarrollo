@@ -6,37 +6,38 @@
 @inject RecursoServicio RecursoServicio
 @inject NavigationManager navigation
 
+    <h1>Editar Tarea</h1>
 
-<EditForm Model="@Tarea" OnValidSubmit="@Guardar">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-    <div class="form-group row">
-        <label class="text-center">Ingrese el título: </label>
-        <InputText @bind-Value="Tarea.Titulo" />
-    </div>
-    <div class="form-group row">
-        <label class="text-center">Ingrese el vencimiento: </label>
-        <InputText @bind-Value="Tarea.Vencimiento" />
-    </div>
-    <div class="form-group row">
-        <label class="text-center">Ingrese la estimación: </label>
-        <InputText @bind-Value="Tarea.Estimacion" />
-    </div>
-    <div class="form-group row">
-        <InputSelect @bind-Value="RecursoID">
-            <option value="0">Elegir un Recurso</option>
-            @foreach (var R in Recursos)
-            {
-                <option value="@R.Id">@R.Nombre</option>
-            }
-        </InputSelect>
-     </div>
+    <EditForm Model="@Tarea" OnValidSubmit="@Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group row">
+            <label class="text-center">Ingrese el título: </label>
+            <InputText @bind-Value="Tarea.Titulo" />
+        </div>
+        <div class="form-group row">
+            <label class="text-center">Ingrese el vencimiento: </label>
+            <InputText @bind-Value="Tarea.Vencimiento" />
+        </div>
+        <div class="form-group row">
+            <label class="text-center">Ingrese la estimación: </label>
+            <InputText @bind-Value="Tarea.Estimacion" />
+        </div>
+        <div class="form-group row">
+            <InputSelect @bind-Value="RecursoID">
+                <option value="0">Elegir un Recurso</option>
+                @foreach (var R in Recursos)
+                {
+                    <option value="@R.Id">@R.Nombre</option>
+                }
+            </InputSelect>
+        </div>
 
-            <button class="btn-outline-primary" type="submit">Guardar</button>
-</EditForm>
+        <button class="btn-outline-primary" type="submit">Guardar</button>
+    </EditForm>
 
 
-@code {
+    @code {
         [Parameter]
         public int Id { get; set; }
 
@@ -46,30 +47,30 @@
 
         private List<Recurso> Recursos { get; set; } = new List<Recurso>();
 
-    protected override async Task OnInitializedAsync()
-    {
-        if (Id > 0)
+        protected override async Task OnInitializedAsync()
         {
-            Tarea = await TareaServicio.Get(Id);
-            RecursoID = Tarea.responsableId.ToString();
+            if (Id > 0)
+            {
+                Tarea = await TareaServicio.Get(Id);
+                RecursoID = Tarea.responsableId.ToString();
+            }
+            else
+            {
+                Tarea = new Tarea();
+            }
+            Recursos = await RecursoServicio.GetAllRecurso();
         }
-        else
+
+
+        private async void Guardar()
         {
-            Tarea = new Tarea();
+            if (int.Parse(RecursoID) > -1)
+            {
+                Tarea.responsableId = int.Parse(RecursoID);
+            }
+            await TareaServicio.SaveTarea(Tarea);
+            navigation.NavigateTo("Tareas/ListadoTareas");
         }
-        Recursos = await RecursoServicio.GetAllRecurso();
+
+
     }
-
-
-    private async void Guardar()
-    {
-        if (int.Parse(RecursoID) > -1)
-        {
-            Tarea.responsableId = int.Parse(RecursoID);
-        }
-        await TareaServicio.SaveTarea(Tarea);
-        navigation.NavigateTo("Tareas/ListadoTareas");
-    }
-
-
-}

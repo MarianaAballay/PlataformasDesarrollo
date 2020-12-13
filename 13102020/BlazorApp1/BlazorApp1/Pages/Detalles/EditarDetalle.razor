@@ -7,6 +7,8 @@
 @inject NavigationManager navigation
 
 
+    <h1>Editar Detalle</h1>
+
 <EditForm Model="@Detalle" OnValidSubmit="@Guardar">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -27,7 +29,7 @@
         <option value="0">Elegir una Tarea</option>
         @foreach (var T in Tareas)
         {
-            <option value="@T.Id">@T.Id</option>
+            <option value="@T.Id">@T.Titulo</option>
         }
     </InputSelect>
 
